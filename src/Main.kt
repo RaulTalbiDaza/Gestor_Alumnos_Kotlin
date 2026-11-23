@@ -67,5 +67,11 @@ fun listarAlumnos(alumnos: List<Alumno>) {
     }
 }
 
+// Fase 6: media de todas las notas (se asume lista no vacía; se controla en main)
+fun calcularMedia(alumnos: List<Alumno>): Double {
+    if (alumnos.isEmpty()) return 0.0
+    return alumnos.map { it.nota }.average()
+}
+
 
 
