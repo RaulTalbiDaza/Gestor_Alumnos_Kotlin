@@ -94,5 +94,43 @@ fun mostrarSuspensos(alumnos: List<Alumno>) {
     }
 }
 
+// Fase 8: búsqueda parcial, sin distinguir mayúsculas
+fun buscarAlumno(alumnos: List<Alumno>) {
+    print("Introduce el texto a buscar: ")
+    val texto = readLine()?.trim().orEmpty()
+    if (texto.isEmpty()) {
+        println("Debes introducir un texto para buscar.")
+        return
+    }
+
+    val encontrados = alumnos.filter { it.coincideCon(texto) }
+
+    if (encontrados.isEmpty()) {
+        println("No se han encontrado alumnos con ese criterio.")
+    } else {
+        encontrados.forEach { println(it.descripcion()) }
+    }
+}
+
+// Fase 9: eliminar mostrando la lista y pidiendo el número
+fun eliminarAlumno(alumnos: MutableList<Alumno>) {
+    if (alumnos.isEmpty()) {
+        println("No hay alumnos registrados.")
+        return
+    }
+
+    listarAlumnos(alumnos)
+    print("Introduce el número del alumno a eliminar: ")
+    val numero = readLine()?.trim()?.toIntOrNull()
+
+    if (numero == null || numero < 1 || numero > alumnos.size) {
+        println("Número no válido. El alumno no existe.")
+        return
+    }
+
+    alumnos.removeAt(numero - 1)
+    println("Alumno eliminado correctamente.")
+}
+
 
 
