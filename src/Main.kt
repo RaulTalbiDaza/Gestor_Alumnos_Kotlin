@@ -56,5 +56,16 @@ fun registrarAlumno(alumnos: MutableList<Alumno>) {
     }
 }
 
+// Fase 5: listado numerado
+fun listarAlumnos(alumnos: List<Alumno>) {
+    if (alumnos.isEmpty()) {
+        println("No hay alumnos registrados.")
+        return
+    }
+    alumnos.forEachIndexed { indice, alumno ->
+        println("${indice + 1}. ${alumno.descripcion()}")
+    }
+}
+
 
 
