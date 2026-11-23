@@ -73,5 +73,26 @@ fun calcularMedia(alumnos: List<Alumno>): Double {
     return alumnos.map { it.nota }.average()
 }
 
+// Fase 7: filtrado con filter
+fun mostrarAprobados(alumnos: List<Alumno>) {
+    println("===== ALUMNOS APROBADOS =====")
+    val aprobados = alumnos.filter { it.esAprobado() }
+    if (aprobados.isEmpty()) {
+        println("No hay alumnos aprobados.")
+    } else {
+        aprobados.forEach { println(it.descripcion()) }
+    }
+}
+
+fun mostrarSuspensos(alumnos: List<Alumno>) {
+    println("===== ALUMNOS SUSPENSOS =====")
+    val suspensos = alumnos.filter { it.esSuspenso() }
+    if (suspensos.isEmpty()) {
+        println("No hay alumnos suspensos.")
+    } else {
+        suspensos.forEach { println(it.descripcion()) }
+    }
+}
+
 
 
